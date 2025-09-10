@@ -1,14 +1,14 @@
-const path = require('path')
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common')
-const { VueLoaderPlugin } = require('vue-loader')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import path from 'path'
+import { merge } from 'webpack-merge'
+import common from './webpack.common.js'
+import { VueLoaderPlugin } from 'vue-loader'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-module.exports = merge(common, {
+export default merge(common, {
   mode: 'development',
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(import.meta.dirname, '../dist'),
     filename: 'index.js',
     clean: true
   },
@@ -24,7 +24,7 @@ module.exports = merge(common, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'index.html'),
+      template: path.resolve(import.meta.dirname, 'index.html'),
       inject: 'body'
     }),
     new VueLoaderPlugin()
