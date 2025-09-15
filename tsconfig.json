@@ -1,0 +1,19 @@
+{
+  "include": ["./src/**/*", "./build-ts/**/*", "eslint.config.ts"],
+  "exclude": ["./node_modules/**/*"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "strictNullChecks": true,
+    "strict": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "experimentalDecorators": true
+  },
+  "tsc-alias": {
+    "resolveFullPaths": true
+  }
+}

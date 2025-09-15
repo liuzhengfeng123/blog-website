@@ -1,7 +1,14 @@
 {
-  "presets": [
+  "presets": [["@babel/preset-env"]],
+  "plugins": [
+    ["@babel/proposal-decorators", { "legacy": true }],
+    ["@babel/proposal-class-properties", { "loose": true }],
     [
-      "@babel/preset-env"
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
     ]
   ]
 }

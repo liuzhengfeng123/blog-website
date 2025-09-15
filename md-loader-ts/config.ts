@@ -1,6 +1,6 @@
 import MarkdownIt from "markdown-it";
-import container from './containers.js'
-import overWriteFenceRule from './fence.js'
+import container from './containers'
+import overWriteFenceRule from './fence'
 
 const md = MarkdownIt({
   html: true
