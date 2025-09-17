@@ -4,6 +4,7 @@ import router from './router'
 import App from './App.vue'
 import './plugins/element'
 import DemoBlock from './components/demo-block.vue'
+import FenceCodeBlock from './components/fence-code-block.vue'
 import ComponentPage from './components/component-page.vue'
 import VirtualScroll from 'el-tree-virtual-scroll'
 import 'el-tree-virtual-scroll/styles/index.css'
@@ -12,10 +13,12 @@ import 'el-tree-virtual-scroll/styles/index.css'
 
 import './styles/common.scss'
 import './styles/demo.scss'
+import './styles/transition.css'
 
 Vue.use(VueRouter)
 // Vue.use(ElementUI)
 Vue.component('demo-block', DemoBlock)
+Vue.component('fence-code-block', FenceCodeBlock)
 Vue.component('ComponentPage', ComponentPage)
 Vue.component('virtual-scroll', VirtualScroll)
 

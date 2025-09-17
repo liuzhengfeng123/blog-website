@@ -7,14 +7,17 @@
       <div v-if="$slots.default" class="description">
         <slot />
       </div>
-      <div class="highlight">
-        <el-popover class="item" content="复制代码" placement="right" trigger="hover">
-          <template #reference>
-            <el-button class="copy-btn" type="text" @click="copyCode">
-              <i class="el-icon-copy-document" />
-            </el-button>
-          </template>
-        </el-popover>
+      <div class="highlight" @mouseenter="codeHovering = true" @mouseleave="codeHovering = false">
+        <transition name="fade">
+          <el-button
+            v-show="codeHovering"
+            title="Copy Code"
+            size="mini"
+            icon="el-icon-copy-document"
+            class="copy-code-btn"
+            @click="copyCode"
+          />
+        </transition>
         <slot name="highlight" />
       </div>
     </div>
@@ -41,6 +44,7 @@ export default class DemoBlock extends Vue {
   isExpanded = false
   hovering = false
   codeAreaHeight = 0
+  codeHovering = false
 
   get iconClass() {
     return this.isExpanded ? 'el-icon-caret-top' : 'el-icon-caret-bottom'
@@ -104,15 +108,6 @@ export default class DemoBlock extends Vue {
 
   .highlight {
     position: relative;
-    pre {
-      margin: 0;
-    }
-    .copy-btn {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 18px;
-    }
   }
 
   .description {

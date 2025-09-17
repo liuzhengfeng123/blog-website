@@ -3,8 +3,8 @@ import mdContainer from 'markdown-it-container'
 import type { ContainerOpts } from 'markdown-it-container'
 const reg = /^demo\s*(.*)$/
 
-export default (md:MarkdownIt) => {
-  md.use(mdContainer, 'demo', ({
+export default (md: MarkdownIt) => {
+  md.use(mdContainer, 'demo', {
     validate(params) {
       return !!params.trim().match(reg)
     },
@@ -14,13 +14,23 @@ export default (md:MarkdownIt) => {
       if (token.nesting === 1) {
         const m = token.info.trim().match(reg)
         const description = m && m[1].length > 1 ? m[1] : ''
-        const content = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : ''
+        const nextToken = tokens[idx + 1]
+        let content = ''
+        if (nextToken.type === 'fence') {
+          content = nextToken.content
+        } else if (
+          nextToken.type === 'html_block' &&
+          nextToken.content.includes('<!-- prettier-ignore -->')
+          && tokens[idx + 2].type === 'fence'
+        ) {
+          content = tokens[idx + 2].content
+        }
         return `<demo-block>
         ${description ? `<div>${md.render(description)}</div>` : ''}
         <!--element-demo: ${content}:element-demo-->
         `
       }
-      return '</demo-block>';
+      return '</demo-block>'
     }
-  } as ContainerOpts))
+  } as ContainerOpts)
 }

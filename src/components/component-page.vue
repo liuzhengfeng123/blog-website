@@ -34,12 +34,6 @@ export default class ComponentPage extends Vue {
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .page-container {
-    width: 100%;
-  }
-}
-
 aside {
   position: sticky;
   left: 0;
@@ -52,46 +46,6 @@ aside {
 }
 
 .page-component {
-  // width: calc(100% - 240px);
   padding-top: 50px;
-  // margin-left: 270px;
-}
-
-.page-content ::v-deep {
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    background-color: #fff;
-    font-size: 14px;
-    margin-bottom: 45px;
-    line-height: 1.5em;
-
-    strong {
-      font-weight: normal;
-    }
-
-    td,
-    th {
-      border-bottom: 1px solid #dcdfe6;
-      padding: 15px;
-      max-width: 250px;
-    }
-
-    th {
-      text-align: left;
-      white-space: nowrap;
-      color: #909399;
-      font-weight: normal;
-    }
-
-    td {
-      color: #606266;
-    }
-
-    th:first-child,
-    td:first-child {
-      padding-left: 10px;
-    }
-  }
 }
 </style>
