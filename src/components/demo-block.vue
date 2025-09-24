@@ -137,6 +137,7 @@ export default class DemoBlock extends Vue {
       border-radius: 3px;
       height: 18px;
       line-height: 18px;
+      box-sizing: content-box;
     }
   }
 

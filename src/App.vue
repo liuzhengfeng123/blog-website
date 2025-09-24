@@ -10,7 +10,6 @@
       </a>
     </header>
     <section>
-      <div class="head-placeholder" />
       <main>
         <router-view />
       </main>
@@ -48,11 +47,5 @@ header {
   background-color: #fff;
 
   z-index: 2;
-}
-
-section {
-  .head-placeholder {
-    height: 60px;
-  }
 }
 </style>

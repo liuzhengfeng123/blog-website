@@ -59,7 +59,7 @@ textarea {
   min-height: 100%;
 }
 
-.page-container {
+.page-component__content {
   h2 {
     font-size: 28px;
     color: #1f2d3d;
@@ -139,12 +139,13 @@ textarea {
   }
 
   table {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
     background-color: #fff;
     font-size: 14px;
     margin-bottom: 45px;
     line-height: 1.5em;
+    overflow: auto;
 
     strong {
       font-weight: normal;

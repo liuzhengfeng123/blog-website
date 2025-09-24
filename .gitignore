@@ -2,6 +2,8 @@
 node_modules
 /dist
 /examples
+bundle-report.html
+/note.txt
 
 
 # local env files

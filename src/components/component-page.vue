@@ -1,7 +1,8 @@
 <template>
-  <div class="page-container">
-    <div class="page-component">
-      <div class="page-content">
+  <div class="page-component">
+    <div class="header-placeholder" />
+    <div class="page-component__main">
+      <div class="page-component__content">
         <slot />
       </div>
     </div>
@@ -28,24 +29,30 @@ export default class ComponentPage extends Vue {
 }
 </script>
 <style lang="scss" scoped>
-.page-container {
-  position: relative;
-  width: 870px;
-  margin: 0 auto;
+.header-placeholder {
+  height: 60px;
 }
 
-aside {
-  position: sticky;
-  left: 0;
-  top: 60px;
-  bottom: 0;
-  width: 240px;
+.page-component__main {
   height: calc(100vh - 60px);
-  padding-top: 50px;
   overflow: auto;
 }
 
-.page-component {
-  padding-top: 50px;
+.page-component__content {
+  width: 870px;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .page-component__content {
+    width: 100%;
+
+    padding: 10px;
+
+    ::v-deep table {
+      display: block;
+    }
+  }
 }
 </style>
