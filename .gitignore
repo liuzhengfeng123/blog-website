@@ -3,7 +3,7 @@ node_modules
 /dist
 /examples
 bundle-report.html
-/note.txt
+/note
 
 
 # local env files

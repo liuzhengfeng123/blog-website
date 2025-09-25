@@ -1,0 +1,20 @@
+name: Practice - connect to AlibabaCloud
+on:
+  push:
+    branches:
+      - 'github-action-study'
+env:
+  HOST: 'http://106.14.18.67/'
+  PORT: 22
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 执行远程 SSH 命令（密码认证）
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ env.HOST }}
+          username: admin
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ env.PORT }}
+          script: whoami
