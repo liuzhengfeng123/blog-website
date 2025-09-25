@@ -4,7 +4,7 @@ on:
     branches:
       - 'github-action-study'
 env:
-  HOST: 'http://106.14.18.67/'
+  HOST: 'http://106.14.18.67'
   PORT: 22
 jobs:
   deployment:
