@@ -40,4 +40,5 @@ jobs:
             cd /home/admin
             chgrp -R www-data dist
             chmod -R 750 dist
-            mv -f dist /data/
+            rm -rf /data/dist
+            mv dist /data/
