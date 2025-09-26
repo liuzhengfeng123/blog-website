@@ -4,17 +4,40 @@ on:
     branches:
       - 'main'
 env:
-  HOST: '106.14.18.67'
-  PORT: '22'
+  HOST: 106.14.18.67
+  PORT: 22
+  USER_NAME: admin
+  PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 jobs:
   deployment:
     runs-on: ubuntu-latest
     steps:
-      - name: 执行远程 SSH 命令（密码认证）
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - uses: actions/checkout@v4
+      - name: npm 打包构建
+        run: |
+          npm run ci
+          npm run build
+      - name: 通过ppleboy/scp-action 复制文件
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ env.HOST }}
+          port: ${{ env.PORT }}
+          key: ${{ secrets.MY_PRIVATE_KEY }}
+          username: ${{ env.USER_NAME }}
+          source: dist
+          target: /home/admin/
+      - name: "登录到 SSH 服务器修改 dist 文件权限"
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ env.HOST }}
-          username: admin
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ env.PORT }}
-          script: whoami
+          key: ${{ secrets.MY_PRIVATE_KEY }}
+          username: ${{ env.USER_NAME }}
+          script: |
+            cd /home/admin
+            chgrp -R www-data dist
+            chmod -R 750 dist
+            mv dist /data/
