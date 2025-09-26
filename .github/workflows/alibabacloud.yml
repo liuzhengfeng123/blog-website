@@ -2,7 +2,7 @@ name: Practice - connect to AlibabaCloud
 on:
   push:
     branches:
-      - 'github-action-study'
+      - 'main'
 env:
   HOST: '106.14.18.67'
   PORT: '22'

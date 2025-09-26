@@ -9,3 +9,10 @@ declare module '*.md' {
   const component: ComponentOptions<Vue>
   export default component
 }
+
+declare module 'el-tree-virtual-scroll' {
+  import Vue from 'vue'
+  import { ComponentOptions } from 'vue'
+  const component: ComponentOptions<Vue>
+  export default component
+}

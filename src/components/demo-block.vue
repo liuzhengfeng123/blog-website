@@ -63,7 +63,9 @@ export default class DemoBlock extends Vue {
   }
 
   mounted() {
-    this.calculateCodeAreaHeight()
+    this.$nextTick(() => {
+      this.calculateCodeAreaHeight()
+    })
   }
 
   async copyCode() {
