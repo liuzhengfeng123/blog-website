@@ -32,7 +32,11 @@ export default class FenceCodeBlock extends Vue {
   async copyCode() {
     const codeElement = this.$refs.codeRef
     try {
-      await navigator.clipboard.writeText(codeElement.textContent)
+      let code = codeElement.textContent
+      if(code[code.length - 1].codePointAt() === 10) {
+        code = code.slice(0, -1)
+      }
+      await navigator.clipboard.writeText(code)
       this.$message.success('代码已复制到剪贴板')
     } catch (err) {
       this.$message.success('❌ 复制失败：' + err)
