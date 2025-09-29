@@ -38,6 +38,9 @@ export default {
     if (codeElements.length > 0) {
       codeElements.forEach((el) => hljs.highlightElement(el))
     }
+    this.$nextTick(() => {
+      this.locateToAnchor()
+    })
   },
   methods: {
     onMarkdownMounted() {
@@ -77,7 +80,17 @@ export default {
     },
     handleScroll: throttle(function (e) {
       this.$refs.tocOutlineRef?.highlightToc(e)
-    }, 100)
+    }, 100),
+    locateToAnchor() {
+      const hash = location.hash
+      if(hash !== '') {
+        const id = decodeURIComponent(hash).slice(1)
+        const headEle = document.getElementById(id)
+        if(headEle) {
+          headEle.scrollIntoView()
+        }
+      }
+    }
   }
 }
 
