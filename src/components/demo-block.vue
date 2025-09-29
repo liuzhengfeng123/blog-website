@@ -7,16 +7,20 @@
       <div v-if="$slots.default" class="description">
         <slot />
       </div>
-      <div class="highlight" @mouseenter="codeHovering = true" @mouseleave="codeHovering = false">
+      <div
+        class="highlight"
+        @mouseenter="codeHovering = true"
+        @mouseleave="codeHovering = false"
+      >
         <transition name="fade">
-          <el-button
+          <div
             v-show="codeHovering"
-            title="Copy Code"
-            size="mini"
-            icon="el-icon-copy-document"
             class="copy-code-btn"
+            title="Copy Code"
             @click="copyCode"
-          />
+          >
+            <i class="el-icon-copy-document"></i>
+          </div>
         </transition>
         <slot name="highlight" />
       </div>
@@ -30,53 +34,51 @@
   </div>
 </template>
 <script>
-import Vue from 'vue'
-import Component from 'vue-class-component'
-
-@Component({
+export default {
+  data() {
+    return {
+      isExpanded: false,
+      hovering: false,
+      codeAreaHeight: 0,
+      codeHovering: false
+    }
+  },
+  computed: {
+    iconClass() {
+      return this.isExpanded ? 'el-icon-caret-top' : 'el-icon-caret-bottom'
+    }
+  },
   watch: {
     isExpanded(val) {
       this.$refs.meta.style.height = val ? this.codeAreaHeight + 'px' : 0
     }
-  }
-})
-export default class DemoBlock extends Vue {
-  isExpanded = false
-  hovering = false
-  codeAreaHeight = 0
-  codeHovering = false
-
-  get iconClass() {
-    return this.isExpanded ? 'el-icon-caret-top' : 'el-icon-caret-bottom'
-  }
-
-  calculateCodeAreaHeight() {
-    const descriptionBlock = this.$refs.meta.querySelector('.description')
-    const codeBlock = this.$refs.meta.querySelector('.highlight')
-
-    this.codeAreaHeight =
-      [descriptionBlock, codeBlock]
-        .filter((item) => item)
-        .reduce((total, cur) => {
-          return total + cur.clientHeight
-        }, 0) + (descriptionBlock ? 20 : 0)
-  }
-
+  },
   mounted() {
     this.$nextTick(() => {
       this.calculateCodeAreaHeight()
     })
-  }
+  },
+  methods: {
+    async copyCode() {
+      const codeElement = this.$refs.meta.querySelector('pre code')
+      try {
+        await navigator.clipboard.writeText(codeElement.textContent)
+        this.$message.success('代码已复制到剪贴板')
+      } catch (err) {
+        this.$message.success('❌ 复制失败：' + err)
+      }
+    },
+    calculateCodeAreaHeight() {
+      const descriptionBlock = this.$refs.meta.querySelector('.description')
+      const codeBlock = this.$refs.meta.querySelector('.highlight')
 
-  async copyCode() {
-    const codeElement = this.$refs.meta.querySelector('pre code')
-    try {
-      await navigator.clipboard.writeText(codeElement.textContent)
-      this.$message.success('代码已复制到剪贴板')
-    } catch (err) {
-      this.$message.success('❌ 复制失败：' + err)
+      this.codeAreaHeight =
+        [descriptionBlock, codeBlock]
+          .filter((item) => item)
+          .reduce((total, cur) => {
+            return total + cur.clientHeight
+          }, 0) + (descriptionBlock ? 20 : 0)
     }
-    // console.log(codeElement?.textContent)
   }
 }
 </script>

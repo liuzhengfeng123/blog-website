@@ -5,41 +5,42 @@
     @mouseleave="codeHovering = false"
   >
     <transition name="fade">
-      <el-button
+      <div
         v-show="codeHovering"
         class="copy-code-btn"
-        size="mini"
         title="Copy Code"
-        icon="el-icon-copy-document"
         @click="copyCode"
-      />
+      >
+        <i class="el-icon-copy-document"></i>
+      </div>
     </transition>
     <pre><code ref="codeRef" v-text="codeContent" /></pre>
   </div>
 </template>
 <script>
-import Vue from 'vue'
-import Component from 'vue-class-component'
-
-@Component({
+export default {
+  name: 'FenceCodeBlock',
   props: {
     codeContent: String
-  }
-})
-export default class FenceCodeBlock extends Vue {
-  codeHovering = false
-
-  async copyCode() {
-    const codeElement = this.$refs.codeRef
-    try {
-      let code = codeElement.textContent
-      if(code[code.length - 1].codePointAt() === 10) {
-        code = code.slice(0, -1)
+  },
+  data() {
+    return {
+      codeHovering: false
+    }
+  },
+  methods: {
+    async copyCode() {
+      const codeElement = this.$refs.codeRef
+      try {
+        let code = codeElement.textContent
+        if (code[code.length - 1].codePointAt() === 10) {
+          code = code.slice(0, -1)
+        }
+        await navigator.clipboard.writeText(code)
+        this.$message.success('代码已复制到剪贴板')
+      } catch (err) {
+        this.$message.success('❌ 复制失败：' + err)
       }
-      await navigator.clipboard.writeText(code)
-      this.$message.success('代码已复制到剪贴板')
-    } catch (err) {
-      this.$message.success('❌ 复制失败：' + err)
     }
   }
 }

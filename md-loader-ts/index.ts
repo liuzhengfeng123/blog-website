@@ -39,8 +39,12 @@ function loader(source: string) {
     pageScript = `<script>
       export default {
         name: 'component-doc',
+        props: ['onMounted'],
         components: {
           ${componenetsString}
+        },
+        mounted() {
+          this.onMounted()
         }
       }
     </script>`

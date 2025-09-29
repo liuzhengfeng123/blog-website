@@ -17,16 +17,14 @@
   </div>
 </template>
 <script>
-import Vue from 'vue'
-import Component from 'vue-class-component'
 import GithubIcon from '@/assets/svg/github-icon.vue'
 
-@Component({
+export default {
+  name: 'App',
   components: {
     GithubIcon
   }
-})
-export default class App extends Vue {}
+}
 </script>
 <style lang="scss" scoped>
 header {

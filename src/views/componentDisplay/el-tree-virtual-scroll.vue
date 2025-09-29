@@ -1,17 +1,17 @@
 <template>
   <component-page>
-    <virtual-scroll-md />
+    <template #default="{ onMounted }">
+      <virtual-scroll-md :on-mounted="onMounted" />
+    </template>
   </component-page>
 </template>
 <script>
-import Vue from 'vue'
-import Component from 'vue-class-component'
 import VirtualScrollMd from 'cwd/docs/virutal-scroll.md'
 
-@Component({
+export default {
+  name: 'VirtualScrollComponentPage',
   components: {
     VirtualScrollMd
   }
-})
-export default class VirtualScroll extends Vue {}
+}
 </script>

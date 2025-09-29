@@ -11,20 +11,18 @@ export default defineConfig([
     files: ['build/**/*.ts', 'src/**/*.ts'],
     extends: [
       js.configs.recommended,
-      ...typescriptEslint.configs.recommendedTypeChecked,
+      ...typescriptEslint.configs.recommended,
     ],
     languageOptions: {
       globals: {
         ...globals.browser
-      },
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
       }
     },
     rules: {
       ...commonRules as unknown as Partial<Linter.RulesRecord>,
-      "@typescript-eslint/ban-ts-comment": "off"
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unsafe-function-type": "off"
     }
   },
   {

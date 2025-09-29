@@ -19,11 +19,6 @@ body {
   box-sizing: border-box;
 }
 
-a {
-  color: #409eff;
-  text-decoration: none;
-}
-
 code {
   background-color: #f9fafc;
   padding: 0 4px;
@@ -60,37 +55,26 @@ textarea {
 }
 
 .page-component__content {
+
   h2 {
     font-size: 28px;
     color: #1f2d3d;
-    margin: 0;
+    margin: 36px 0 20px;
   }
 
   h3 {
     font-size: 22px;
-    margin: 55px 0 20px;
   }
 
+  h1,
   h2,
   h3,
   h4,
   h5 {
     font-weight: normal;
-    color: #1f2f3d;
-
-    &:hover a {
-      opacity: 0.4;
-    }
-
     a {
-      float: left;
-      margin-left: -20px;
-      opacity: 0;
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.4;
-      }
+      color: #1f2f3d;
+      text-decoration: none;
     }
   }
 
@@ -102,10 +86,25 @@ textarea {
 
   .copy-code-btn {
     position: absolute;
-    top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
     right: 12px;
     padding: 7px 12px;
+    width: 40px;
+    height: 40px;
+
     font-size: 18px;
+    background-color: #f6f6f7;
+    border: 1px solid #e2e2e3;
+    border-radius: 4px;
+    transition: background-color .25s, opacity 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #fff;
+    }
   }
 
   pre {
