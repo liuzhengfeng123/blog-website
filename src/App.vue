@@ -2,12 +2,15 @@
   <div id="app">
     <header>
       <span>el-tree-virtual-scroll</span>
-      <a
-        href="https://github.com/liuzhengfeng123/el-tree-virtual-scroll.git"
-        target="_blank"
-      >
-        <github-icon />
-      </a>
+      <div class="header__right">
+        <theme-switcher />
+        <a
+          href="https://github.com/liuzhengfeng123/el-tree-virtual-scroll.git"
+          target="_blank"
+        >
+          <github-icon />
+        </a>
+      </div>
     </header>
     <section>
       <main>
@@ -18,11 +21,13 @@
 </template>
 <script>
 import GithubIcon from '@/assets/svg/github-icon.vue'
+import ThemeSwitcher from './components/theme-switcher'
 
 export default {
   name: 'App',
   components: {
-    GithubIcon
+    GithubIcon,
+    ThemeSwitcher
   }
 }
 </script>
@@ -34,7 +39,7 @@ header {
   width: 100%;
   height: 60px;
   padding: 0 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--divider-light);
 
   display: flex;
   justify-content: space-between;
@@ -42,8 +47,22 @@ header {
 
   font-size: 20px;
   box-sizing: border-box;
-  background-color: #fff;
-
+  background-color: var(--bgc);
   z-index: 2;
+  transition:
+    border-color 0.5s,
+    background-color 0.5s;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+</style>
+
+<style>
+body {
+  color: var(--text-color);
 }
 </style>

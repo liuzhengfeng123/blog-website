@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import router from './router'
+import store from './store'
 import App from './App.vue'
 import './plugins/element'
 import DemoBlock from './components/demo-block.vue'
@@ -14,6 +15,7 @@ import 'el-tree-virtual-scroll/styles/index.css'
 import './styles/common.scss'
 import './styles/demo.scss'
 import './styles/transition.css'
+import './styles/_theme.scss'
 
 Vue.use(VueRouter)
 // Vue.use(ElementUI)
@@ -25,5 +27,6 @@ Vue.component('virtual-scroll', VirtualScroll)
 new Vue({
   el: '#app',
   router,
+  store,
   render: (h) => h(App as Vue.Component)
 })

@@ -1,0 +1,21 @@
+@use 'theme-variables' as *;
+
+:root {
+  @each $name, $value in $colors {
+    --#{$name}: #{$value};
+  }
+}
+
+:root[theme="dark"] {
+  @each $name, $value in $colors {
+    $dark-value: '';
+    @if $name == 'bgc' {
+      $dark-value: #1a1a1a;
+    } @else if $name == 'divider-light' {
+      $dark-value: #4c4d4f;
+    } @else if $name == 'text-color' {
+      $dark-value: #e5eaf3;
+    }
+     --#{$name}: #{$dark-value};
+  }
+}
