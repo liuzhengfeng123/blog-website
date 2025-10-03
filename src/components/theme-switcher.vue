@@ -37,6 +37,7 @@ export default {
     right: 30px;
   }
   border-radius: 50%;
+  color: var(--text-color);
   transition: background-color 0.2s;
   cursor: pointer;
 
@@ -48,6 +49,10 @@ export default {
 
   &:hover {
     background-color: #efefef;
+
+    @include other-theme {
+      background-color: #444950;
+    }
   }
 }
 </style>

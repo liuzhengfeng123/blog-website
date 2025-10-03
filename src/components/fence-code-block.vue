@@ -39,7 +39,7 @@ export default {
         await navigator.clipboard.writeText(code)
         this.$message.success('代码已复制到剪贴板')
       } catch (err) {
-        this.$message.success('❌ 复制失败：' + err)
+        this.$message.error('❌ 复制失败：' + err)
       }
     }
   }

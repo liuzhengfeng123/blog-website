@@ -13,8 +13,20 @@
       $dark-value: #1a1a1a;
     } @else if $name == 'divider-light' {
       $dark-value: #4c4d4f;
-    } @else if $name == 'text-color' {
-      $dark-value: #e5eaf3;
+    } @else if $name == 'text-color' or $name == 'p-color' {
+      $dark-value: rgba(255, 255, 255, .87);
+    } @else if $name == 'text-code-bg' {
+      $dark-value: #2f2f2f;
+    } @else if $name == 'text-code-color' {
+      $dark-value: #aac8e4;
+    } @else if $name == 'code-block-bg' {
+      $dark-value: #262727;
+    } @else if $name == 'copy-code-bg' {
+      $dark-value: #202127;
+    } @else if $name == 'copy-code-border-color' {
+      $dark-value: #2e2e32;
+    } @else if $name == 'copy-code-hover-bg' {
+      $dark-value: #1b1b1f;
     }
      --#{$name}: #{$dark-value};
   }

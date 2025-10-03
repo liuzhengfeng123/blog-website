@@ -3,3 +3,9 @@
   justify-content: $justifyContent;
   align-items: $alignItems;
 }
+
+@mixin other-theme($theme: dark) {
+  [theme=#{$theme}] & {
+    @content
+  }
+}

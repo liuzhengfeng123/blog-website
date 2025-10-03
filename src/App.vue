@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <span>el-tree-virtual-scroll</span>
+      <span class="logo">el-tree-virtual-scroll</span>
       <div class="header__right">
         <theme-switcher />
         <a
@@ -47,11 +47,7 @@ header {
 
   font-size: 20px;
   box-sizing: border-box;
-  background-color: var(--bgc);
   z-index: 2;
-  transition:
-    border-color 0.5s,
-    background-color 0.5s;
 }
 
 .header__right {
@@ -64,5 +60,8 @@ header {
 <style>
 body {
   color: var(--text-color);
+  transition: color .5s, background-color .5s;
+  background-color: var(--bgc);
+  font-family: Quotes, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 </style>

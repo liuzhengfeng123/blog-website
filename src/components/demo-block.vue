@@ -25,7 +25,9 @@
         <slot name="highlight" />
       </div>
     </div>
-    <div class="demo-block-control" @click="isExpanded = !isExpanded">
+    <div class="demo-block-control" :style="{
+      borderWidth: isExpanded ? '1px' : '0'
+    }" @click="isExpanded = !isExpanded">
       <i :class="[iconClass, { hovering: hovering }]" />
       <transition name="text-slide">
         <span v-show="hovering">显示代码</span>
@@ -65,7 +67,7 @@ export default {
         await navigator.clipboard.writeText(codeElement.textContent)
         this.$message.success('代码已复制到剪贴板')
       } catch (err) {
-        this.$message.success('❌ 复制失败：' + err)
+        this.$message.error('❌ 复制失败：' + err)
       }
     },
     calculateCodeAreaHeight() {
@@ -84,7 +86,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .demo-block {
-  border: solid 1px #ebebeb;
+  border: solid 1px var(--divider-light);
   border-radius: 3px;
   transition: 0.2s;
 
@@ -94,17 +96,13 @@ export default {
       0 2px 4px 0 rgba(232, 237, 250, 0.5);
   }
 
-  code {
-    font-family: Menlo, Monaco, Consolas, Courier, monospace;
-  }
 
   .source {
     padding: 24px;
   }
 
   .meta {
-    background-color: #fafafa;
-    border-top: solid 1px #eaeefb;
+    border-top: solid 1px var(--divider-light);
     height: 0;
     overflow: hidden;
     transition: height 0.2s;
@@ -117,14 +115,12 @@ export default {
   .description {
     padding: 20px;
     box-sizing: border-box;
-    border: solid 1px #ebebeb;
+    border: solid 1px var(--divider-light);
     border-radius: 3px;
     font-size: 14px;
     line-height: 22px;
-    color: #666;
     word-break: break-word;
     margin: 10px;
-    background-color: #fff;
 
     p {
       margin: 0;
@@ -132,8 +128,6 @@ export default {
     }
 
     code {
-      color: #5e6d82;
-      background-color: #e6effb;
       margin: 0 4px;
       display: inline-block;
       padding: 1px 5px;
@@ -146,10 +140,9 @@ export default {
   }
 
   .demo-block-control {
-    border-top: solid 1px #eaeefb;
+    border-top: solid 1px var(--divider-light);
     height: 44px;
     box-sizing: border-box;
-    background-color: #fff;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     text-align: center;
@@ -178,7 +171,6 @@ export default {
 
     &:hover {
       color: #409eff;
-      background-color: #f9fafc;
     }
 
     & .text-slide-enter,

@@ -1,0 +1,122 @@
+.page-component__content {
+  h2 {
+    font-size: 28px;
+    margin: 36px 0 20px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: normal;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.5em;
+    color: var(--p-color);
+    transition: color 0.5s;
+  }
+
+  code {
+    font-family:
+      'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  }
+
+  code:not(pre code) {
+    padding: 0.15em 0.5em;
+    background-color: var(--text-code-bg);
+    color: var(--text-code-color);
+    transition:
+      color 0.5s,
+      background-color 0.5s;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .hljs {
+    line-height: 1.8;
+    font-size: 14px;
+    padding: 18px 24px;
+    background-color: var(--code-block-bg);
+    transition: background-color 0.5s;
+    border-radius: 4px;
+    -webkit-font-smoothing: auto;
+  }
+
+  .hljs, .hljs-subst {
+    color: inherit;
+  }
+
+  .copy-code-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+    right: 12px;
+    padding: 7px 12px;
+    width: 40px;
+    height: 40px;
+
+    font-size: 18px;
+    background-color: var(--copy-code-bg);
+    border: 1px solid var(--copy-code-border-color);
+    border-radius: 4px;
+    transition:
+      background-color 0.25s,
+      opacity 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--copy-code-hover-bg);
+    }
+  }
+
+  pre {
+    margin: 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    // background-color: #fff;
+    font-size: 14px;
+    margin-bottom: 45px;
+    line-height: 1.5em;
+    overflow: auto;
+
+    strong {
+      font-weight: normal;
+    }
+
+    td,
+    th {
+      // border-bottom: 1px solid #dcdfe6;
+      border-bottom: 1px solid var(--divider-light);
+      padding: 15px;
+      max-width: 250px;
+      color: var(--text-color);
+    }
+
+    th {
+      text-align: left;
+      white-space: nowrap;
+      font-weight: bold;
+    }
+
+    th:first-child,
+    td:first-child {
+      padding-left: 10px;
+    }
+  }
+}
