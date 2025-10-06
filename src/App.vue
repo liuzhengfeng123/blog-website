@@ -48,6 +48,7 @@ header {
   font-size: 20px;
   box-sizing: border-box;
   z-index: 2;
+  transition: border-bottom-color $theme-switch-transition-duration;
 }
 
 .header__right {
@@ -57,11 +58,25 @@ header {
 }
 </style>
 
-<style>
+<style lang="scss">
 body {
   color: var(--text-color);
-  transition: color .5s, background-color .5s;
+  transition:
+    color $theme-switch-transition-duration,
+    background-color $theme-switch-transition-duration;
   background-color: var(--bgc);
-  font-family: Quotes, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family:
+    Quotes,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
 }
 </style>

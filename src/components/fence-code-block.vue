@@ -14,14 +14,15 @@
         <i class="el-icon-copy-document"></i>
       </div>
     </transition>
-    <pre><code ref="codeRef" v-text="codeContent" /></pre>
+    <pre><code ref="codeRef" :class="language" v-text="codeContent" /></pre>
   </div>
 </template>
 <script>
 export default {
   name: 'FenceCodeBlock',
   props: {
-    codeContent: String
+    codeContent: String,
+    language: String
   },
   data() {
     return {

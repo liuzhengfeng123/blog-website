@@ -6,7 +6,7 @@
 
 安装
 
-```shell
+```bash
 npm i el-tree-virtual-scroll -S
 ```
 

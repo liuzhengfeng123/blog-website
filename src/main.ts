@@ -13,10 +13,10 @@ import 'el-tree-virtual-scroll/styles/index.css'
 // import 'element-ui/lib/theme-chalk/index.css'
 
 import './styles/common.scss'
+import './styles/_theme.scss'
+import './styles/transition.css'
 import './styles/component-page.scss'
 import './styles/demo.scss'
-import './styles/transition.css'
-import './styles/_theme.scss'
 
 Vue.use(VueRouter)
 // Vue.use(ElementUI)

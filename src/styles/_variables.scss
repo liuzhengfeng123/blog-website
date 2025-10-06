@@ -1,3 +1,5 @@
+$theme-switch-transition-duration: 0.5s;
+
 @mixin horizontallyCenter ($justifyContent: center, $alignItems: center) {
   display: flex;
   justify-content: $justifyContent;

@@ -14,7 +14,7 @@ export default (md:MarkdownIt) => {
     if (token.info === 'vue' && isInDemoContainer) {
       return `<template slot="highlight"><pre v-pre><code class="vue">${md.utils.escapeHtml(token.content)}</code></pre></template>`;
     } else {
-      return `<fence-code-block code-content="${token.content}"></fence-code-block>`
+      return `<fence-code-block language="${token.info}" code-content="${token.content}"></fence-code-block>`
     }
   };
 };

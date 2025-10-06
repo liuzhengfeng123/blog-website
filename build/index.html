@@ -5,7 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>el-tree-virtual-scroll</title>
-    <link rel="stylesheet" href="https://shadow.elemecdn.com/npm/highlight.js@9.3.0/styles/color-brewer.css">
+    <script>
+      const storageTheme = localStorage.getItem('theme') || 'light'
+      document.documentElement.setAttribute('theme', storageTheme)
+    </script>
+    <style>
+      body {
+        background-color: #fff;
+        color: #213547;
+      }
+
+      :root[theme=dark] body {
+        background-color: #1a1a1a;
+        color: rgba(255, 255, 255, .87);
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="https://shadow.elemecdn.com/npm/highlight.js@9.3.0/styles/color-brewer.css"> -->
   </head>
   <body>
     <noscript>

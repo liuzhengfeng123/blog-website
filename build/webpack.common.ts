@@ -62,7 +62,15 @@ const config: Configuration = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader']
+        oneOf: [
+          {
+            exclude: path.resolve(__dirname, '../src/styles/hljs/'),
+            use: ['style-loader', 'css-loader']
+          },
+          {
+            use: ['css-loader']
+          }
+        ]
       },
       {
         test: /\.s[ac]ss$/i,

@@ -88,7 +88,7 @@ export default {
 .demo-block {
   border: solid 1px var(--divider-light);
   border-radius: 3px;
-  transition: 0.2s;
+  transition: box-shadow 0.2s, border-color $theme-switch-transition-duration;
 
   &.hover {
     box-shadow:
@@ -105,7 +105,7 @@ export default {
     border-top: solid 1px var(--divider-light);
     height: 0;
     overflow: hidden;
-    transition: height 0.2s;
+    transition: height 0.2s, border-color $theme-switch-transition-duration;
   }
 
   .highlight {
@@ -121,6 +121,7 @@ export default {
     line-height: 22px;
     word-break: break-word;
     margin: 10px;
+    transition: border-color $theme-switch-transition-duration;
 
     p {
       margin: 0;
@@ -150,6 +151,7 @@ export default {
     color: #d3dce6;
     cursor: pointer;
     position: relative;
+    transition: border-color $theme-switch-transition-duration;
 
     i {
       font-size: 16px;
