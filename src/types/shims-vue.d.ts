@@ -16,3 +16,8 @@ declare module 'el-tree-virtual-scroll' {
   const component: ComponentOptions<Vue>
   export default component
 }
+
+declare module 'element-ui' {
+  const component: any
+  export default component
+}

@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import router from './router'
 import store from './store'
 import App from './App.vue'
-import './plugins/element'
+import Element from 'element-ui'
 import DemoBlock from './components/demo-block.vue'
 import FenceCodeBlock from './components/fence-code-block.vue'
 import ComponentPage from './components/component-page.vue'
@@ -19,6 +19,7 @@ import './styles/component-page.scss'
 import './styles/demo.scss'
 
 Vue.use(VueRouter)
+Vue.use(Element)
 // Vue.use(ElementUI)
 Vue.component('demo-block', DemoBlock)
 Vue.component('fence-code-block', FenceCodeBlock)

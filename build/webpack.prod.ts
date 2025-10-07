@@ -10,7 +10,6 @@ const __dirname = path.dirname(__filename)
 
 const config: Configuration = merge<Configuration>(common, {
   mode: 'production',
-  devtool: 'source-map',
   plugins: [
     new webpackBundleAnalyzer.BundleAnalyzerPlugin({
       analyzerMode: 'static', // 生成 HTML 文件
