@@ -15,7 +15,7 @@ npm i el-tree-virtual-scroll -S
 ```js
 import VirtualScroll from 'el-tree-virtual-scroll'
 import 'el-tree-virtual-scroll/styles/index.css' // 如果已经引入了 element-ui 官方样式则不必重复引用
-Vue.component('virtual-scroll', VirtualScroll)
+Vue.component('virtualScroll', VirtualScroll)
 ```
 
 或者局部注册
