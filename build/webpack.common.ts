@@ -22,10 +22,10 @@ const config: Configuration = {
       cwd: path.resolve(__dirname, '..')
     }
   },
-  externals: {
-    vue: 'Vue',
-    'element-ui': 'ELEMENT'
-  },
+  // externals: {
+  //   vue: 'Vue',
+  //   'element-ui': 'ELEMENT'
+  // },
   module: {
     rules: [
       {
