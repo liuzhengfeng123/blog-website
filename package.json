@@ -31,6 +31,7 @@
     "@vue/component-compiler-utils": "^3.3.0",
     "babel-loader": "^10.0.0",
     "babel-plugin-component": "^1.1.1",
+    "compression-webpack-plugin": "^11.1.0",
     "css-loader": "^7.1.2",
     "eslint": "^9.34.0",
     "eslint-plugin-vue": "^10.4.0",
