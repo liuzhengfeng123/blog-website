@@ -3,6 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
+RUN npm run build
 
 FROM nginx AS final-stage
 COPY --from=build-stage /app/dist /data/dist
